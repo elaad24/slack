@@ -1,7 +1,6 @@
-import React from 'react'
+"use client";
+import "./index.css";
 
 export default function Portfolio() {
-  return (
-    <div>page portfolio</div>
-  )
+  return <div className="portfolio">page portfolio</div>;
 }

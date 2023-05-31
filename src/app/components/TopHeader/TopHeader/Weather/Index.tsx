@@ -1,6 +1,6 @@
 import "./index.css";
 import { useEffect, useState } from "react";
-import { current_weather } from "../../../servises/3rd_api";
+import { current_weather } from "../../../../../servises/3rd_api";
 import Image from "next/image";
 
 export const Weather: React.FC = () => {

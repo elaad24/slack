@@ -1,8 +1,8 @@
 'use client';
 import "./index.css";
-import {Weather} from "../Weather/Index"
-import { Searchbar } from "../Searchbar/Index";
-import { Personal_header_btn } from "../Personal_header_btn/Index";
+import {Weather} from "./TopHeader/Weather/Index"
+import { Searchbar } from "./TopHeader/Searchbar/Index";
+import { Personal_header_btn } from "./TopHeader/Personal_header_btn/Index";
 
 export const TopHeader:React.FC= ()=> {
   return(

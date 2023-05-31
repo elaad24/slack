@@ -15,7 +15,14 @@ body {
   flex-direction: row;
   justify-content: space-between;
 
+._MainBodySection{
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
 }
+
+}
+
 
 
 

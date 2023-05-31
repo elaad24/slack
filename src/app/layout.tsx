@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 //components
 import {Navbar} from "./components/NavBar/Index";
 import {HeaderColor} from "./components/HeaderColor/Index"
+import {TopHeader} from "./components/TopHeader/Index"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -22,7 +23,10 @@ export default function RootLayout({
         <>
           <HeaderColor/>
           <Navbar />
+          <div className="_MainBodySection">
+            <TopHeader/>
           {children}
+          </div>
         </>
       </body>
     </html>

@@ -4,7 +4,6 @@
   width: max-content;
   color: #fff;
 
-
   .top_row {
     display: flex;
     justify-content: space-between;
@@ -57,5 +56,54 @@
     color: rgba(255, 255, 255, 0.753);
     font-size: 1.2rem;
     font-weight: bold;
+  }
+
+  .bottom_row {
+display: flex;
+flex-direction: row-reverse;
+justify-content: space-around;
+
+    .posotive_stats {
+      color: rgb(48, 233, 24);
+      font-size: 0.8rem;
+      &::before {
+        color: rgb(48, 233, 24);
+        content: "˄ +";
+        font-size: 0.8rem;
+      }
+      &::after {
+        color: rgb(48, 233, 24);
+        content: "%";
+        font-size: 0.8rem;
+      }
+    }
+
+    .negtive_stats {
+      color: rgb(231, 46, 46);
+      font-size: 0.8rem;
+
+      &::before {
+        color: rgb(231, 46, 46);
+        content: "˅ -";
+        font-size: 0.8rem;
+      }
+      &::after {
+        color: rgb(231, 46, 46);
+        content: "%";
+        font-size: 0.8rem;
+      }
+    }
+
+    .finel_sum {
+      text-align: center;
+      &::before {
+        content: "$ ";
+        color: gray;
+        font-size: 0.9rem;
+      }
+      color: rgba(255, 255, 255, 0.753);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
   }
 }

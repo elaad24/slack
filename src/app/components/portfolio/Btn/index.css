@@ -1,0 +1,26 @@
+.Btn {
+  width: -moz-min-content;
+  width: min-content;
+  display: flex;
+}
+.Btn .btn_ragular {
+  padding: 0.3rem 1rem;
+  background-color: hsl(22, 98%, 58%);
+  color: white;
+  text-transform: capitalize;
+  font-weight: bold;
+  border-radius: 11px;
+  width: -moz-max-content;
+  width: max-content;
+}
+.Btn .btn_invert {
+  padding: 0.3rem 1rem;
+  background-color: transparent;
+  border: hsl(22, 98%, 58%) 1.2px solid;
+  color: hsl(22, 98%, 58%);
+  text-transform: capitalize;
+  font-weight: bold;
+  border-radius: 11px;
+  width: -moz-max-content;
+  width: max-content;
+}/*# sourceMappingURL=index.css.map */

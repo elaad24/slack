@@ -37,9 +37,34 @@
       justify-content: space-between;
       padding-right: 1rem;
       padding-bottom: 0.3rem;
+      margin-bottom: 0.3rem;
       color: rgba(255, 255, 255, 0.753);
       font-weight: bold;
       text-transform: capitalize;
+      .btns {
+        display: flex;
+        gap: 0.8rem;
+      }
+    }
+    .second_part {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 1rem;
+      padding-bottom: 0.3rem;
+      border: 1px solid rgba(69, 154, 204, 0.753);
+
+      color: rgba(255, 255, 255, 0.753);
+      .card {
+        display: flex;
+        gap: 1.3rem;
+        .img {
+          border-radius: 9px;
+        }
+      }
+      .btns {
+        display: flex;
+        gap: 0.8rem;
+      }
     }
   }
 }

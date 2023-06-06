@@ -1,7 +1,7 @@
 .Main_container {
   flex-grow: 3;
   border: 3px solid yellow;
-  background-color: hsl(0, 6%, 7%);
+  background-color: hsl(0, 5%, 20%);
   display: flex;
   flex-direction: column;
   padding: 0.7rem 1rem;
@@ -55,11 +55,22 @@
 .Main_container .third_row .second_part .card {
   display: flex;
   gap: 1.3rem;
+  align-items: center;
 }
 .Main_container .third_row .second_part .card .img {
   border-radius: 9px;
 }
-.Main_container .third_row .second_part .btns {
+.Main_container .third_row .second_part .table_btns {
   display: flex;
-  gap: 0.8rem;
+  gap: 0.2rem;
+  align-items: center;
+}
+.Main_container .third_row .second_part .table_btns button {
+  filter: grayscale(1) brightness(0.25);
+}
+.Main_container .third_row .second_part .table_btns button:active, .Main_container .third_row .second_part .table_btns button:hover {
+  filter: none;
+}
+.Main_container .third_row .third_part {
+  height: 60vh;
 }/*# sourceMappingURL=index.css.map */

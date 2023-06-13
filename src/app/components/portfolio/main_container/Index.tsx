@@ -6,31 +6,27 @@ import Image from "next/image";
 import Stock from "../../../../../public/stock.png";
 import Chart from "chart.js/auto";
 import { useEffect } from "react";
-import { log } from "console";
+import { findHighest, findLowest } from "@/app/utils";
 
 export const Main_container: React.FC = () => {
   useEffect(() => {
+    //  settings for the chart
     const ctx = document.getElementById(
       "profolio_page_chart"
     ) as HTMLCanvasElement;
 
-    const labels = [
-      "1/1",
-      "1/2",
-      "1/3",
-      "1/4",
-      "1/5",
-      "1/6",
-      "1/7",
-      "1/8",
-      "1/9",
-    ];
+    const labels = ["1/1", "1/2", "1/3", "1/4", "1/5", "1/6"];
     const colors = {
       low: "rgba(217, 65, 48,1)",
       high: "rgba(122, 222, 64,1)",
     };
 
-    function getGradient(ctx: any, chartArea: any, scales: any) {
+    function getGradient(
+      ctx: any,
+      chartArea: any,
+      scales: any,
+      data: Number[]
+    ) {
       const gradientBG = ctx.createLinearGradient(
         chartArea.left,
         0,
@@ -43,9 +39,9 @@ export const Main_container: React.FC = () => {
         );
       };
       let code: any = [];
-      a.map((i, index) => {
-        if (index < a.length - 1) {
-          if (i < a[index + 1]) {
+      data.map((i, index) => {
+        if (index < data.length - 1) {
+          if (i < data[index + 1]) {
             code.push(
               `gradientBG.addColorStop(${percenage(index)}, '${colors.high}');`
             );
@@ -54,7 +50,7 @@ export const Main_container: React.FC = () => {
                 colors.high
               }');`
             );
-          } else if (i > a[index + 1]) {
+          } else if (i > data[index + 1]) {
             code.push(
               `gradientBG.addColorStop(${percenage(index)}, '${colors.low}');`
             );
@@ -65,37 +61,125 @@ export const Main_container: React.FC = () => {
             );
           }
         }
-       
+
         return eval(code.join(""));
       });
 
       return gradientBG;
     }
 
-    let a = [11, 99, 20, 3, 8, 100, 1, 40, 70];
+    let a = [0.73, 0.8, 0.77, 0.6, 0.47, 0.95];
+    let b = [3824.14, 4016.22, 4012.32, 4027.81, 4169.48, 4221.02];
+    const maxValueYexeb = Math.max(...b) * 1.33;
+    const minValueYexeb = Math.min(...b) * 1.33;
+
+    const marketPresentegChange = b.map((i, index) => {
+      if (index != 0) {
+        const prevValue = b[index - 1];
+        return Math.round(((i - prevValue) / prevValue) * 100 * 100) / 100;
+      } else return 0;
+    });
+
+    const compenyValueChange = a.map((i, index) => {
+      if (index != 0) {
+        const prevValue = a[index - 1];
+        return Math.round(((i - prevValue) / prevValue) * 100 * 100) / 100;
+      } else return 0;
+    });
+
+    const maxValueYexe = Math.max(...a) * 1.33;
+    const minValueYexe = Math.min(...a) - Math.min(...a) * 0.33;
+
+    const footer = (tooltipItems: any[]) => {
+      let sum = 0;
+      console.log("tooltipItems", tooltipItems);
+
+      tooltipItems.forEach(function (tooltipItem) {
+        sum += tooltipItem.parsed.y;
+      });
+
+      return "Sum: " + sum;
+    };
+
     const data = {
       labels: labels,
       datasets: [
         {
           label: "firm 1",
-          data: a,
+          data: compenyValueChange,
+          originalStockData: a,
           fill: false,
           borderColor: (context: any) => {
             const chart = context.chart;
             const { ctx, chartArea, scales } = chart;
             if (!chartArea) return null;
-            return getGradient(ctx, chartArea, scales);
+            return getGradient(ctx, chartArea, scales, a);
           },
           tension: 0.35,
+          pointRadius: 10,
+          pointHoverRadius: 25,
+          pointStyle: "rectRounded",
+        },
+        {
+          label: "sp 500",
+          data: marketPresentegChange,
+          originalStockData: b,
+
+          fill: false,
+          borderColor: (context: any) => {
+            const chart = context.chart;
+            const { ctx, chartArea, scales } = chart;
+            if (!chartArea) return null;
+            return getGradient(ctx, chartArea, scales, b);
+          },
+          tension: 0.35,
+          pointRadius: 10,
+          pointHoverRadius: 25,
+          pointStyle: "rectRounded",
         },
       ],
     };
 
-    const myChart = new Chart(ctx, {
+    const config = new Chart(ctx, {
       type: "line",
       data: data,
+
       options: {
         responsive: true,
+
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+            },
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: "% change ",
+            },
+            suggestedMin: minValueYexe,
+            suggestedMax: maxValueYexe,
+            // min: minValueYexe,
+            // max: maxValueYexe,
+          },
+        },
+        plugins: {
+          tooltip: {
+            callbacks: {
+              footer: footer,
+              afterBody:()=>"afterBody",
+              beforeBody:()=>"befor body",
+              afterLabel:()=>"after label",
+              beforeLabel:()=>"before label",
+              title:()=>"title",
+            
+              
+            },
+          },
+        },
       },
     });
   }, []);

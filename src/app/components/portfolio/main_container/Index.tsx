@@ -91,14 +91,32 @@ export const Main_container: React.FC = () => {
     const minValueYexe = Math.min(...a) - Math.min(...a) * 0.33;
 
     const footer = (tooltipItems: any[]) => {
-      let sum = 0;
-      console.log("tooltipItems", tooltipItems);
-
-      tooltipItems.forEach(function (tooltipItem) {
-        sum += tooltipItem.parsed.y;
+      let data = "";
+      tooltipItems.forEach((tooltipItem) => {
+        data = tooltipItem.dataset.data[tooltipItem.dataIndex];
       });
-
-      return "Sum: " + sum;
+      return `data - ${data}`;
+    };
+    const title = (tooltipItems: any[]) => {
+      let header = "";
+      tooltipItems.forEach((tooltipItem) => {
+        header = tooltipItem.dataset.label;
+      });
+      return `stock - ${header}`;
+    };
+    const beforeBody = (tooltipItems: any[]) => {
+      let stockValue = "";
+      tooltipItems.forEach((tooltipItem) => {
+        stockValue = tooltipItem.dataset.originalStockData[tooltipItem.dataIndex];
+      });
+      return `stock value - $${stockValue}`;
+    };
+    const afterBody = (tooltipItems: any[]) => {  
+      let stockChange = "";
+      tooltipItems.forEach((tooltipItem) => {
+        stockChange = tooltipItem.dataset.data[tooltipItem.dataIndex];
+      });
+      return `stock change - ${stockChange}`;
     };
 
     const data = {
@@ -169,14 +187,10 @@ export const Main_container: React.FC = () => {
         plugins: {
           tooltip: {
             callbacks: {
+              title: title,
+              beforeBody: beforeBody,
+              afterBody: afterBody,
               footer: footer,
-              afterBody:()=>"afterBody",
-              beforeBody:()=>"befor body",
-              afterLabel:()=>"after label",
-              beforeLabel:()=>"before label",
-              title:()=>"title",
-            
-              
             },
           },
         },

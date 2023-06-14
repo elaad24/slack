@@ -2,6 +2,7 @@
 import "./index.css";
 
 import Image from "next/image";
+import { Btn } from "../Btn/Index";
 import Stock from "../../../../../public/stock.png";
 import { useEffect } from "react";
 import Chart from "chart.js/auto";
@@ -82,7 +83,7 @@ export const Second_container: React.FC = () => {
             display: true,
             text: "compeny shareholders percentage",
             font: {
-              size: 16,
+              size: 20,
             },
             color: "rgba(255,255,255,1)",
           },
@@ -96,6 +97,10 @@ export const Second_container: React.FC = () => {
       },
     });
   }, []);
+
+  const prev_close = 17112;
+  const stat = 26;
+  const positive = true;
 
   return (
     <div className="Second_container ">
@@ -132,6 +137,44 @@ export const Second_container: React.FC = () => {
 
       <div className="doughnut_chart">
         <canvas id="profolio_page_doughnut_chart"></canvas>
+      </div>
+
+      <div className="data_card">
+        <div className="date">1 January - 1 June</div>
+        <div className="card">
+          <div className="card_row">
+            <div className="title">prev close</div>
+            <div className="usd_value">
+              {prev_close.toLocaleString("en-EG", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 3,
+              })}
+            </div>
+          </div>
+          <div className="card_row">
+            <div className="title">% change</div>
+            <div className="value">
+              {positive ? (
+                <div className="posotive_stats">{stat}</div>
+              ) : (
+                <div className="negtive_stats">{stat}</div>
+              )}
+            </div>
+          </div>
+          <div className="card_row">
+            <div className="title">market cap</div>
+            <div className="usd_value">28 m usd</div>
+          </div>
+          <div className="card_row">
+            <div className="title">PE Ration</div>
+            <div className="value">14.28%</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="buttons">
+        <Btn btnTxt="withdraw" btnInvert={true} />
+        <Btn btnTxt="deposit +" />
       </div>
     </div>
   );

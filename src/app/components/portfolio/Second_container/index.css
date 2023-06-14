@@ -1,7 +1,6 @@
 @charset "UTF-8";
 .Second_container {
   flex-grow: 1;
-  border: 3px solid yellow;
   padding: 0.7rem 1rem;
   background-color: hsl(0, 5%, 20%);
   display: flex;

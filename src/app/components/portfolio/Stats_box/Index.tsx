@@ -5,14 +5,14 @@ import "./index.css";
 export const Stats_box: React.FC<{
   title: string;
   stat: number;
-  positibe: boolean;
+  positive: boolean;
   finel_sum: number;
   v1?: boolean;
   v2?: boolean;
 }> = ({
   title,
   stat,
-  positibe = true,
+  positive = true,
   finel_sum = 10000,
   v1 = false,
   v2 = false,
@@ -33,7 +33,7 @@ export const Stats_box: React.FC<{
         <>
           <div className="top_row">
             <div className="title">{title}</div>
-            {positibe ? (
+            {positive ? (
               <div className="posotive_stats">{stat}</div>
             ) : (
               <div className="negtive_stats">{stat}</div>
@@ -48,7 +48,7 @@ export const Stats_box: React.FC<{
           </div>
           <div className="bottom_row">
 
-            {positibe ? (
+            {positive ? (
               <div className="posotive_stats">{stat}</div>
               ) : (
                 <div className="negtive_stats">{stat}</div>

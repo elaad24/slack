@@ -107,11 +107,12 @@ export const Main_container: React.FC = () => {
     const beforeBody = (tooltipItems: any[]) => {
       let stockValue = "";
       tooltipItems.forEach((tooltipItem) => {
-        stockValue = tooltipItem.dataset.originalStockData[tooltipItem.dataIndex];
+        stockValue =
+          tooltipItem.dataset.originalStockData[tooltipItem.dataIndex];
       });
       return `stock value - $${stockValue}`;
     };
-    const afterBody = (tooltipItems: any[]) => {  
+    const afterBody = (tooltipItems: any[]) => {
       let stockChange = "";
       tooltipItems.forEach((tooltipItem) => {
         stockChange = tooltipItem.dataset.data[tooltipItem.dataIndex];
@@ -163,28 +164,52 @@ export const Main_container: React.FC = () => {
       data: data,
 
       options: {
+        
         responsive: true,
 
         scales: {
           x: {
+            grid:{
+              color:"rgba(255,255,255,0.3)"
+            },
+            ticks: {
+              color: "rgba(255,255,255,1)",
+            },
             display: true,
             title: {
               display: true,
             },
           },
           y: {
+            grid:{
+              color:"rgba(255,255,255,0.3)"
+            },
+            ticks: {
+              color: "rgba(255,255,255,1)",
+            },
             display: true,
             title: {
               display: true,
+              color: "rgba(255,255,255,1)",
               text: "% change ",
             },
             suggestedMin: minValueYexe,
             suggestedMax: maxValueYexe,
+
             // min: minValueYexe,
             // max: maxValueYexe,
           },
         },
         plugins: {
+          legend: {
+            labels: {
+              color: "rgba(227, 227, 227,1)",
+              font: {
+                size: 18,
+              },
+            },
+          },
+
           tooltip: {
             callbacks: {
               title: title,
@@ -196,7 +221,15 @@ export const Main_container: React.FC = () => {
         },
       },
     });
+    
   }, []);
+  useEffect(() => {
+    if (window.innerWidth >= 999) {
+      Chart.defaults.font.size = 18;
+    } else {
+      Chart.defaults.font.size = 12;
+    }
+  }, [window.innerWidth]);
 
   return (
     <div className="Main_container">
@@ -212,28 +245,28 @@ export const Main_container: React.FC = () => {
         <Stats_box
           v1={true}
           finel_sum={42069}
-          positibe={true}
+          positive={true}
           stat={24}
           title="my balance"
         />
         <Stats_box
           v1={true}
           finel_sum={20619}
-          positibe={true}
+          positive={true}
           stat={28}
           title="investment"
         />
         <Stats_box
           v1={true}
           finel_sum={8664}
-          positibe={true}
+          positive={true}
           stat={22}
           title="totoal gain"
         />
         <Stats_box
           v1={true}
           finel_sum={1212}
-          positibe={false}
+          positive={false}
           stat={20}
           title="total loss"
         />
@@ -260,7 +293,7 @@ export const Main_container: React.FC = () => {
             <Stats_box
               v2={true}
               finel_sum={8664}
-              positibe={true}
+              positive={true}
               stat={22}
               title="origin game ea inc. (orea)"
             />

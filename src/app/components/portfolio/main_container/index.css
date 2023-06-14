@@ -1,6 +1,5 @@
 .Main_container {
   flex-grow: 3;
-  border: 3px solid yellow;
   background-color: hsl(0, 5%, 20%);
   display: flex;
   flex-direction: column;
@@ -26,7 +25,6 @@
   margin-bottom: 1.5rem;
 }
 .Main_container .third_row {
-  border: 1px solid white;
   display: flex;
   flex-direction: column;
 }
@@ -49,7 +47,6 @@
   justify-content: space-between;
   padding-right: 1rem;
   padding-bottom: 0.3rem;
-  border: 1px solid rgba(69, 154, 204, 0.753);
   color: rgba(255, 255, 255, 0.753);
 }
 .Main_container .third_row .second_part .card {

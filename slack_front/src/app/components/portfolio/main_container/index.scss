@@ -1,0 +1,87 @@
+.Main_container {
+  flex-grow: 3;
+  // border: 3px solid yellow;
+  background-color: hsl(0, 5%, 20%);
+  // background-color: hsl(0, 6%, 7%);
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 1rem;
+ 
+
+  .first_row {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 2rem;
+    text-transform: capitalize;
+    .btns {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      // align-items: center;
+      gap: 1rem;
+    }
+  }
+
+  .second_row {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .third_row {
+    // border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    .first_part {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 1rem;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.3rem;
+      color: rgba(255, 255, 255, 0.753);
+      font-weight: bold;
+      text-transform: capitalize;
+      .btns {
+        display: flex;
+        gap: 0.8rem;
+      }
+    }
+    .second_part {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 1rem;
+      padding-bottom: 0.3rem;
+      // border: 1px solid rgba(69, 154, 204, 0.753);
+
+      color: rgba(255, 255, 255, 0.753);
+      .card {
+        display: flex;
+        gap: 1.3rem;
+        align-items: center;
+
+        .img {
+          border-radius: 9px;
+        }
+      }
+      .table_btns {
+        display: flex;
+        gap: 0.2rem;
+        align-items: center;
+        button{
+          filter: grayscale(1) brightness(0.25);
+          &:active,&:hover{
+            filter: none;
+          }
+        }
+      }
+
+    }
+.third_part{
+height: 60vh;
+
+}
+
+  }
+}

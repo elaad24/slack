@@ -1,0 +1,114 @@
+.login {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.login .main_card {
+  width: 50%;
+  height: 80%;
+  border: 2px solid teal;
+  position: relative;
+  isolation: isolate;
+}
+.login .main_card .glassEffect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.27);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.8px);
+  -webkit-backdrop-filter: blur(6.8px);
+  border: 1px solid rgba(255, 255, 255, 0.63);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login .main_card .glassEffect .card {
+  z-index: 10;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border: 2px solid goldenrod;
+  gap: 1.5rem;
+}
+.login .main_card .glassEffect .card .title {
+  text-transform: capitalize;
+  text-align: center;
+  background-image: linear-gradient(90deg, rgb(125, 255, 74) 0%, rgb(0, 212, 255) 80%); /* Define the gradient colors */
+  -webkit-background-clip: text; /* Apply the background-clip to the text */
+  -webkit-text-fill-color: transparent; /* Make the text transparent */
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.login .main_card .glassEffect .card .email {
+  border: 2px solid rebeccapurple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: s;
+}
+.login .main_card .glassEffect .card .email input {
+  border-radius: 12px;
+  width: 80%;
+  height: 2rem;
+  font-size: 1.2rem;
+  padding: 0 1.5rem;
+}
+.login .main_card .glassEffect .card .email input::-moz-placeholder {
+  font-size: 1.2rem;
+  padding: 0 1.5rem;
+  text-transform: capitalize;
+}
+.login .main_card .glassEffect .card .email input::placeholder {
+  font-size: 1.2rem;
+  padding: 0 1.5rem;
+  text-transform: capitalize;
+}
+.login .main_card .glassEffect .card .password {
+  border: 2px solid rebeccapurple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: s;
+}
+.login .main_card .glassEffect .card .password input {
+  border-radius: 12px;
+  font-size: 1rem;
+  width: 80%;
+  height: 2rem;
+  padding: 0 1.5rem;
+}
+.login .main_card .glassEffect .card .password input::-moz-placeholder {
+  font-size: 1.2rem;
+  padding: 0 1.5rem;
+  text-transform: capitalize;
+}
+.login .main_card .glassEffect .card .password input::placeholder {
+  font-size: 1.2rem;
+  padding: 0 1.5rem;
+  text-transform: capitalize;
+}
+.login .main_card .glassEffect .card .login_btn {
+  border: 2px solid rebeccapurple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: s;
+}
+.login .main_card .glassEffect .card .login_btn button {
+  border-radius: 1rem;
+  width: 70%;
+  text-transform: capitalize;
+  height: 2.5rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  font-size: 1.7rem;
+  background-image: linear-gradient(90deg, rgb(125, 255, 74) 0%, rgb(0, 212, 255) 80%);
+}/*# sourceMappingURL=index.css.map */

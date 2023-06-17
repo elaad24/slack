@@ -1,0 +1,18 @@
+.Searchbar {
+  display: flex;
+  align-items: center;
+  color: white;
+  z-index: 2;
+}
+.Searchbar input {
+  font-size: 18px;
+  padding: 5px;
+  height: 2rem;
+  width: 12rem;
+  background-color: rgba(63, 63, 63, 0.7450980392);
+  border: 1px solid rgb(0, 0, 0);
+  outline: none;
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.76);
+  padding-left: 1rem;
+}/*# sourceMappingURL=index.css.map */

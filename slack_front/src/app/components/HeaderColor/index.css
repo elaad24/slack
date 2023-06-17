@@ -1,0 +1,14 @@
+.HeaderColor {
+  position: absolute;
+  display: flex;
+  left: 1vw;
+  flex-grow: 1;
+  z-index: 1;
+  width: 99vw;
+  height: 30vh;
+  border-radius: 25px 0 0 0;
+  overflow: hidden;
+  background: rgb(191, 255, 192);
+  background: linear-gradient(29deg, rgb(191, 255, 192) 0%, rgb(84, 168, 160) 22%, rgb(71, 115, 156) 39%, rgb(167, 79, 58) 62%, rgba(149, 62, 42, 0.9908450209) 70%, rgb(75, 22, 125) 83%, rgb(21, 1, 40) 96%);
+  filter: blur(2px);
+}/*# sourceMappingURL=index.css.map */

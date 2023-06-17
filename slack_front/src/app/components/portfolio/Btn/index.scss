@@ -1,0 +1,40 @@
+.Btn {
+  width: min-content;
+  height: min-content;
+  display: flex;
+  .btn_ragular {
+    //  border: 3px solid #6a38c5;
+    padding: 0.3rem 1rem;
+    background-color: hsl(22, 98%, 58%);
+    color: white;
+    text-transform: capitalize;
+    font-weight: bold;
+    border-radius: 11px;
+    width: max-content;
+  }
+
+  .btn_invert {
+    padding: 0.3rem 1rem;
+    background-color: transparent;
+    border: hsl(22, 98%, 58%) 1.2px solid;
+    color: hsl(22, 98%, 58%);
+    text-transform: capitalize;
+    font-weight: bold;
+    border-radius: 11px;
+    width: max-content;
+  }
+
+  .icon_btn{
+    background-color:hsl(0, 6%, 7%);
+    outline: none;
+    border: none;
+    .img{
+      opacity: 0.5;
+    }
+    &:active{
+      background-color: rgba(255, 166, 0, 0.568);
+      border-radius: 10px;
+    }
+  }
+
+}

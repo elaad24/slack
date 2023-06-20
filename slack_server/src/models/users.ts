@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+const bcrypt = require("bcrypt");
 
 const UserSchema = new mongoose.Schema({
   username: { type: String, require: true },
@@ -29,3 +30,4 @@ export const deleteUserByID = (id: String) =>
   UserModel.findByIdAndDelete({ _id: id });
 export const updateUserByID = (id: String, values: Record<string, any>) =>
   UserModel.findByIdAndUpdate(id, values);
+

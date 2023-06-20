@@ -17,14 +17,13 @@ const app: Express = express();
 app.use(cors());
 
 app.use(bodyParser.json());
+app.use(express.json());
 
 const server = http.createServer(app);
 
 const port = process.env.PORT;
 
-
 server.listen(port, () => console.log(`Listening on port ${port}...`));
-
 
 // import the brain of the server by addres
 const users = require("./routes/users");
@@ -51,7 +50,6 @@ app.use("/api/users", users);
 app.get("/hi", (req: Request, res: Response) => {
   res.send("hey, Express!");
 });
-
 
 // error handler
 app.use(function (

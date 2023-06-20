@@ -12,6 +12,7 @@ require("dotenv").config();
 const app = (0, express_1.default)();
 app.use(cors());
 app.use(body_parser_1.default.json());
+app.use(express_1.default.json());
 const server = http_1.default.createServer(app);
 const port = process.env.PORT;
 server.listen(port, () => console.log(`Listening on port ${port}...`));

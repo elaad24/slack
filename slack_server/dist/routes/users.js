@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const users_1 = require("../controllers/users");
+const middleware_1 = require("../middlewere/middleware");
 const router = express_1.default.Router();
 const app = (0, express_1.default)();
 router.get("/users", (req, res) => {
@@ -17,5 +18,16 @@ router.get("/users", (req, res) => {
 });
 router.post("/create", (req, res) => {
     (0, users_1.signIn)(req, res);
+});
+router.post("/logIn", (req, res) => {
+    (0, users_1.login)(req, res);
+});
+router.get("/test", middleware_1.checkJwtSessionToken, (req, res) => {
+    const users = [
+        { id: 1, name: "John Doe" },
+        { id: 2, name: "Jane Smith" },
+        { id: 3, name: "Bob Johnson" },
+    ];
+    res.json(users);
 });
 module.exports = router;

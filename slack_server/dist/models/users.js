@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateUserByID = exports.deleteUserByID = exports.createUser = exports.getUsersByID = exports.getUsersBySessionToke = exports.getUsersByEmail = exports.getUsers = exports.UserModel = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
+const bcrypt = require("bcrypt");
 const UserSchema = new mongoose_1.default.Schema({
     username: { type: String, require: true },
     email: { type: String, require: true },

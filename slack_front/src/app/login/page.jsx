@@ -10,16 +10,16 @@ export default function Login() {
   useEffect(() => {
     // global google
     /* global google */
-    google.accounts.id.initialize({
+  /*   google.accounts.id.initialize({
       client_id:
         "763363555551-jb0u8dhv3ufgt5sb4gcq9guq5v9nra0a.apps.googleusercontent.com",
       callback: handleCallbackResponse,
-    });
+    }); */
 
-    google.accounts.id.renderButton(
+   /*  google.accounts.id.renderButton(
       document.getElementById("signInDiv"),
       {theme:"outline",size:"large"}
-    )
+    ) */
   }, []);
   return (
     <div className="login">
